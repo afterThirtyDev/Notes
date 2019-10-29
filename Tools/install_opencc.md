@@ -5,7 +5,7 @@ Open Chinese Convert (OpenCC, 开放中文转换)
 
 中文简繁转换开源项目，支持词汇级别的转换、异体字转换和地区习惯用词转换（中国大陆、台湾、香港）。
 
-* https://github.com/BYVoid/OpenCC
+https://github.com/BYVoid/OpenCC
 
 * `s2t.json` Simplified Chinese to Traditional Chinese 简体到繁体
 * `t2s.json` Traditional Chinese to Simplified Chinese 繁体到简体
@@ -31,8 +31,8 @@ sudo make
 sudo make install
 ```
 
-Q&A:
-------
+### Q&A:
+
 - 执行 opencc --version后提示：opencc: error while loading shared libraries: libopencc.so.2: cannot open shared object file: No such file or directory
 
 通过 [sudo]**find / -name libopencc.so.2** 找到libopencc.so.2的路径，设置软链接。
