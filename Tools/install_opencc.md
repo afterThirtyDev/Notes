@@ -1,12 +1,11 @@
 安装OpenCC实现繁体字转简体字
 ===
 
-Open Chinese Convert (OpenCC, 开放中文转换)
+Open Chinese Convert (OpenCC, 开放中文转换) [GitHub地址](https://github.com/BYVoid/OpenCC)
 
 中文简繁转换开源项目，支持词汇级别的转换、异体字转换和地区习惯用词转换（中国大陆、台湾、香港）。
 
-https://github.com/BYVoid/OpenCC
-
+### 支持转换的配置
 * `s2t.json` Simplified Chinese to Traditional Chinese 简体到繁体
 * `t2s.json` Traditional Chinese to Simplified Chinese 繁体到简体
 * `s2tw.json` Simplified Chinese to Traditional Chinese (Taiwan Standard) 简体到台湾正体
@@ -24,14 +23,27 @@ https://github.com/BYVoid/OpenCC
 install
 
 ```
-git clone git@github.com:afterThirtyDev/Notes.git
+git clone https://github.com/BYVoid/OpenCC
 cd OpenCC
 
 sudo make
 sudo make install
 ```
 
-### Q&A:
+## Mac
+
+install
+
+```
+# 使用brew安装，目录一般在/usr/local/Cellar/opencc/1.0.5/share/opencc/，代码调用时需要注意。
+brew install opencc
+
+# 手动安装，目录在/usr/local/share/opencc
+make PREFIX=/usr/local
+sudo make PREFIX=/usr/local install
+```
+
+## Q&A:
 
 - 执行 opencc --version后提示：opencc: error while loading shared libraries: libopencc.so.2: cannot open shared object file: No such file or directory
 
@@ -41,18 +53,18 @@ sudo make install
 ln -s /usr/lib/libopencc.so.2 /usr/lib64/libopencc.so.2
 ```
 
-## Mac
+- 在make过程，报错：Doxygen is needed to build the documentation.  Please install it correctly
 
-install
-
-```
-brew install opencc
-```
+在mac中可以使用 **brew install doxygen** 安装
 
 ## 使用
 
-命令行转换文件(繁->简)
+命令行转换(繁->简)
 ```
-opencc -i /tmp/t -o /tmp/s -c t2s.json
+#转换指定文字
+echo "繁體到簡體" | opencc -c t2s
+
+#转换指定文件
+opencc -i /tmp/t -o /tmp/s -c t2s
 ```
 
